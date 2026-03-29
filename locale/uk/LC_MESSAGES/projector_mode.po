@@ -20,28 +20,28 @@ msgstr ""
 
 #: projector_mode/projector_window.py projector_mode/frontend.py
 msgid "Projector Mode"
-msgstr ""
+msgstr "Режим проектора"
 
 #: projector_mode/projector_window.py
 msgid "Fullscreen"
-msgstr ""
+msgstr "Повноекранний режим"
 
 #: projector_mode/projector_window.py
 msgid "Exit Fullscreen"
-msgstr ""
+msgstr "Вийти з повноекранного режиму"
 
 #: projector_mode/projector_window.py
 msgid "100%"
-msgstr ""
+msgstr "100%"
 
 #: projector_mode/projector_window.py
 msgid "80%"
-msgstr ""
+msgstr "80%"
 
 #: projector_mode/projector_window.py
 msgid "60%"
-msgstr ""
+msgstr "60%"
 
 #: projector_mode/projector_window.py
 msgid "40%"
-msgstr ""
+msgstr "40%"

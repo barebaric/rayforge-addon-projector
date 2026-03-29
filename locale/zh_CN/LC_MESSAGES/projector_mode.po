@@ -18,28 +18,28 @@ msgstr ""
 
 #: projector_mode/projector_window.py projector_mode/frontend.py
 msgid "Projector Mode"
-msgstr ""
+msgstr "投影仪模式"
 
 #: projector_mode/projector_window.py
 msgid "Fullscreen"
-msgstr ""
+msgstr "全屏"
 
 #: projector_mode/projector_window.py
 msgid "Exit Fullscreen"
-msgstr ""
+msgstr "退出全屏"
 
 #: projector_mode/projector_window.py
 msgid "100%"
-msgstr ""
+msgstr "100%"
 
 #: projector_mode/projector_window.py
 msgid "80%"
-msgstr ""
+msgstr "80%"
 
 #: projector_mode/projector_window.py
 msgid "60%"
-msgstr ""
+msgstr "60%"
 
 #: projector_mode/projector_window.py
 msgid "40%"
-msgstr ""
+msgstr "40%"
