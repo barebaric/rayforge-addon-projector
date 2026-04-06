@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-03-27 23:47+0100\n"
+"POT-Creation-Date: 2026-04-06 13:19+0200\n"
 "PO-Revision-Date: 2026-03-27 23:47+0100\n"
 "Last-Translator: Automatically generated\n"
 "Language-Team: none\n"
@@ -16,7 +16,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: projector_mode/projector_window.py projector_mode/frontend.py
+#: projector_mode/projector_window.py
 msgid "Projector Mode"
 msgstr "投影仪模式"
 
@@ -43,3 +43,7 @@ msgstr "60%"
 #: projector_mode/projector_window.py
 msgid "40%"
 msgstr "40%"
+
+#: projector_mode/frontend.py
+msgid "Show Projector Dialog"
+msgstr "显示投影仪对话框"
