@@ -21,12 +21,16 @@ from rayforge.ui_gtk.canvas.worldsurface import WorldSurface
 from rayforge.ui_gtk.canvas2d.elements.axis_extent_frame import (
     AxisExtentFrameElement,
 )
+from rayforge.ui_gtk.canvas2d.elements.group import GroupElement
 from rayforge.ui_gtk.canvas2d.elements.layer import LayerElement
+from rayforge.ui_gtk.canvas2d.elements.step import StepElement
+from rayforge.ui_gtk.canvas2d.elements.stock import StockElement
 from rayforge.ui_gtk.canvas2d.elements.work_origin import WorkOriginElement
 from rayforge.ui_gtk.canvas2d.elements.workpiece import (
     OPS_MARGIN_PX,
     WorkPieceElement,
 )
+
 
 if TYPE_CHECKING:
     from rayforge.doceditor.editor import DocEditor
@@ -277,9 +281,6 @@ class ProjectorLayerElement(LayerElement):
             )
         ]
 
-        from rayforge.ui_gtk.canvas2d.elements.group import GroupElement
-        from rayforge.ui_gtk.canvas2d.elements.stock import StockElement
-
         for elem in current_visual_elements[:]:
             if elem.data not in model_items:
                 elem.remove()
@@ -315,8 +316,6 @@ class ProjectorLayerElement(LayerElement):
 
         if self.data.workflow is None:
             return
-
-        from rayforge.ui_gtk.canvas2d.elements.step import StepElement
 
         current_step_elements = [
             elem for elem in self.children if isinstance(elem, StepElement)
@@ -406,46 +405,35 @@ class ProjectorWorkPieceElement(WorkPieceElement):
             metadata = self._ops_metadata_cache.get(step_uid)
 
             if surface is None or metadata is None:
-                view_handle = self.view_manager.get_view_handle(
+                result = self.view_manager.get_view_bitmap(
                     self.data.uid, step.uid
                 )
-                if view_handle is not None:
-                    from rayforge.pipeline.artifact import (
-                        WorkPieceViewArtifact,
-                    )
-
-                    artifact = self.view_manager.store.get(view_handle)
-                    if isinstance(artifact, WorkPieceViewArtifact):
+                if result is not None:
+                    bitmap, bbox_mm, workpiece_size_mm = result
+                    if bitmap is not None:
                         try:
-                            data = artifact.bitmap_data
-                            if data is not None and data.size > 0:
-                                new_data = np.copy(data)
-                                height_px, width_px, _ = new_data.shape
-                                stride = (
-                                    cairo.ImageSurface.format_stride_for_width(
-                                        cairo.FORMAT_ARGB32, width_px
-                                    )
+                            new_data = np.copy(bitmap)
+                            height_px, width_px, _ = new_data.shape
+                            stride = (
+                                cairo.ImageSurface.format_stride_for_width(
+                                    cairo.FORMAT_ARGB32, width_px
                                 )
-                                surface = cairo.ImageSurface.create_for_data(
-                                    new_data,
-                                    cairo.FORMAT_ARGB32,
-                                    width_px,
-                                    height_px,
-                                    stride,
-                                )
-                                metadata = (
-                                    artifact.bbox_mm,
-                                    artifact.workpiece_size_mm,
-                                )
-                                self._ops_surface_cache[step_uid] = surface
-                                self._ops_surface_data_cache[step_uid] = (
-                                    new_data
-                                )
-                                self._ops_metadata_cache[step_uid] = metadata
-                                logger.debug(
-                                    f"ProjectorWorkPieceElement: got "
-                                    f"surface {width_px}x{height_px}"
-                                )
+                            )
+                            surface = cairo.ImageSurface.create_for_data(
+                                memoryview(new_data),
+                                cairo.FORMAT_ARGB32,
+                                width_px,
+                                height_px,
+                                stride,
+                            )
+                            metadata = (bbox_mm, workpiece_size_mm)
+                            self._ops_surface_cache[step_uid] = surface
+                            self._ops_surface_data_cache[step_uid] = new_data
+                            self._ops_metadata_cache[step_uid] = metadata
+                            logger.debug(
+                                f"ProjectorWorkPieceElement: got surface "
+                                f"{width_px}x{height_px}"
+                            )
                         except Exception as e:
                             logger.debug(f"Error creating ops surface: {e}")
 
