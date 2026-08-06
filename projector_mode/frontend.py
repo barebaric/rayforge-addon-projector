@@ -12,6 +12,7 @@ from gi.repository import Gio, GLib
 
 from rayforge.core.hooks import hookimpl
 from rayforge.ui_gtk.action_registry import MenuPlacement
+
 from .projector_window import ProjectorWindow
 
 logger = logging.getLogger(__name__)

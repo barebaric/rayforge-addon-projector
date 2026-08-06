@@ -12,20 +12,20 @@ from typing import TYPE_CHECKING, Optional, cast
 import cairo
 import numpy as np
 
+from rayforge.core.group import Group
 from rayforge.core.layer import Layer
 from rayforge.core.stock import StockItem
 from rayforge.core.workpiece import WorkPiece
-from rayforge.core.group import Group
 from rayforge.machine.models.machine import Machine
 from rayforge.ui_gtk.canvas.worldsurface import WorldSurface
-from rayforge.ui_gtk.canvas2d.elements.layer import LayerElement
-from rayforge.ui_gtk.canvas2d.elements.work_origin import WorkOriginElement
 from rayforge.ui_gtk.canvas2d.elements.axis_extent_frame import (
     AxisExtentFrameElement,
 )
+from rayforge.ui_gtk.canvas2d.elements.layer import LayerElement
+from rayforge.ui_gtk.canvas2d.elements.work_origin import WorkOriginElement
 from rayforge.ui_gtk.canvas2d.elements.workpiece import (
-    WorkPieceElement,
     OPS_MARGIN_PX,
+    WorkPieceElement,
 )
 
 if TYPE_CHECKING:

@@ -10,6 +10,7 @@ from gi.repository import Gdk, Gtk
 
 from rayforge.context import get_context
 from rayforge.ui_gtk.shared.gtk import apply_css
+
 from .projector_surface import ProjectorSurface
 
 if TYPE_CHECKING:
