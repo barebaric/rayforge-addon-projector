@@ -31,7 +31,6 @@ from rayforge.ui_gtk.canvas2d.elements.workpiece import (
     WorkPieceElement,
 )
 
-
 if TYPE_CHECKING:
     from rayforge.doceditor.editor import DocEditor
 
