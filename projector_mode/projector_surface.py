@@ -17,6 +17,7 @@ from rayforge.core.layer import Layer
 from rayforge.core.stock import StockItem
 from rayforge.core.workpiece import WorkPiece
 from rayforge.machine.models.machine import Machine
+from rayforge.machine.models.machine_view import MachineView
 from rayforge.ui_gtk.canvas.worldsurface import WorldSurface
 from rayforge.ui_gtk.canvas2d.elements.axis_extent_frame import (
     AxisExtentFrameElement,
@@ -171,8 +172,10 @@ class ProjectorSurface(WorldSurface):
         self._tracked_axis_extents = (width_mm, height_mm)
         self.set_size(float(width_mm), float(height_mm))
 
-        space = self.machine.get_coordinate_space()
-        self._work_origin_element.set_coordinate_space(space)
+        view = MachineView(self.machine.get_coordinate_space())
+        self._work_origin_element.set_axis_direction(
+            view.x_axis_right, view.y_axis_down
+        )
 
         self._update_extent_frame()
 
