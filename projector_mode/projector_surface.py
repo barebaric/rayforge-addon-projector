@@ -56,20 +56,17 @@ class ProjectorSurface(WorldSurface):
         self._tabs_globally_visible = True
 
         width_mm, height_mm = 100.0, 100.0
-        coordinate_space = None
         if machine:
             width_mm, height_mm = (
                 float(machine.axis_extents[0]),
                 float(machine.axis_extents[1]),
             )
-            coordinate_space = machine.get_coordinate_space()
 
         super().__init__(
             width_mm=width_mm,
             height_mm=height_mm,
             show_grid=False,
             show_axis=False,
-            coordinate_space=coordinate_space,
         )
 
         self.set_focus_on_click(False)
