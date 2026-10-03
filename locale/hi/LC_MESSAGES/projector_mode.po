@@ -1,0 +1,50 @@
+# Hindi translations for Rayforge.
+# Copyright (C) 2026 The Rayforge Project
+# This file is distributed under the same license as the Rayforge package.
+# Samuel Abels <knipknap@gmail.com>, 2026.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Rayforge\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-04-06 13:19+0200\n"
+"PO-Revision-Date: 2026-09-27 22:58\n"
+"Last-Translator: Samuel Abels <knipknap@gmail.com>\n"
+"Language-Team: none\n"
+"Language: hi\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: projector_mode/projector_window.py
+msgid "Projector Mode"
+msgstr "प्रोजेक्टर मोड"
+
+#: projector_mode/projector_window.py
+msgid "Fullscreen"
+msgstr "फ़ुलस्क्रीन"
+
+#: projector_mode/projector_window.py
+msgid "Exit Fullscreen"
+msgstr "फ़ुलस्क्रीन से बाहर निकलें"
+
+#: projector_mode/projector_window.py
+msgid "100%"
+msgstr "100%"
+
+#: projector_mode/projector_window.py
+msgid "80%"
+msgstr "80%"
+
+#: projector_mode/projector_window.py
+msgid "60%"
+msgstr "60%"
+
+#: projector_mode/projector_window.py
+msgid "40%"
+msgstr "40%"
+
+#: projector_mode/frontend.py
+msgid "Show Projector Dialog"
+msgstr "प्रोजेक्टर संवाद दिखाएँ"
